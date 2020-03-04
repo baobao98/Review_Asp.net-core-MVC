@@ -18,8 +18,17 @@ namespace ASP_MVC_review
            // Console.WriteLine("Hello bao");
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            //-----System code
+            //return WebHost.CreateDefaultBuilder(args)
+            //               .UseStartup<Startup>();
+
+            //-----Explantion code
+            var builder = new WebHostBuilder().w;
+
+            
+        }
+           
     }
 }

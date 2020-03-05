@@ -60,7 +60,7 @@ namespace ASP_MVC_review
 
 
 
-            // ------- There are 2 ways to add middleware: use app.run (terminal middleware) or app.use
+            // ------- There are 3 ways to add middleware: use app.run (terminal middleware) or app.use or app.Map
             //Middleware will follow the orders
             //Middleware go up to down and go down to up again => middleware invoked twice
 
@@ -84,6 +84,9 @@ namespace ASP_MVC_review
             // --extension way to evoke a middlware
             app.Use_SimpleMiddlware();
 
+            //--Map used to match request delegates based on a request’s path
+            app.Map("/maptest", SomeMiddlewares.HandleMapTest);
+          
 
             app.Run(async (context) =>
             {
@@ -92,5 +95,6 @@ namespace ASP_MVC_review
 
 
         }
+
     }
 }

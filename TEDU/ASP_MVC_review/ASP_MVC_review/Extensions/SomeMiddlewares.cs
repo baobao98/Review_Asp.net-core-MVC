@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASP_MVC_review.Middlewares;
+using Microsoft.AspNetCore.Http;
 
 namespace ASP_MVC_review.Extensions
 {
@@ -13,5 +14,14 @@ namespace ASP_MVC_review.Extensions
         {
             return builder.UseMiddleware<SimpleMiddleware>();
         }
+
+        public static void HandleMapTest(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Hello from MAP middlware");
+            });
+        }
     }
+
 }

@@ -45,7 +45,7 @@ namespace ASP_MVC_review
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

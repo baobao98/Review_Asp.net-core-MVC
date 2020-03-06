@@ -26,47 +26,26 @@ namespace DemoMVC
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+            app.UseMvcWithDefaultRoute();
 
-            //app.UseMvcWithDefaultRoute();
-            //explanation for use default:
-            //app.UseMvc(route =>
-            //{
-            //    route.MapRoute("default", "{controller=Home/{action=Index}/{id}"); // add a route to route collection 
-            //});
-
+            //---constrain by routes in config
             //app.UseMvc(routes =>
             //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{area}/{controller=Home}/{action=Index}/{id?}"
-            //        );
+            //    routes.MapRoute(name: "default",
+            //                    template: "post/{id:int}",
+            //                    defaults: new { controller = "Post", action = "PostsByID" });
+
+            //    routes.MapRoute(name: "anotherRoute",
+            //        template: "post/{id:alpha}",
+            //        defaults: new { controller = "Post", action = "PostsByPostName" });
+
             //});
 
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "admin/{controller=Home}/{action=Index}/{id?}"
-            //        );
-            //});
-
-            // route follow orders top to down
-            app.UseMvc(routes =>
+            app.Run(async (context) =>
             {
-                routes.MapRoute("secure", "secure", new
-                {
-                    Controller="Admin", Action="Index"
-                });
-
-                routes.MapRoute(
-                    name: "default",
-                    template: "/{controller=Home}/{action=Index}/{id?}"
-                    );
+                await context.Response.WriteAsync("Hello World!");
             });
+
 
         }
     }

@@ -6,11 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DemoMVC.Controllers
 {
+    [Route("test")]
     public class CustomerController : Controller
     {
+        [Route("customer")]
         public IActionResult Index()
         {
             return View();
         }
+
+        [Route("khach-hang/vip")]
+        public string khachhang()
+        {
+            return "xin chao khach hang vip";
+        }
+
     }
 }

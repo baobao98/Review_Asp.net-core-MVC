@@ -5,4 +5,16 @@
     <UserSecretsId>1638ef4e-cf40-43e2-bf48-4b4672eb226d</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="resources\test2.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="resources\test2.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\test.html" />
+  </ItemGroup>
+
 </Project>

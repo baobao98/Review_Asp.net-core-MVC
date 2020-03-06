@@ -32,20 +32,8 @@ namespace ConfigurationSample
                 app.UseDeveloperExceptionPage();
             }
 
-            // --The orders to add appsetting:
-            // privilege for use secrect
-            // depend on the env the config get when building host, app will take appsetting according to the name of environment
-            // dev env -> get appsettings.Development.json
-            // dev production -> get appsettings.Production.json
-            app.Run(async context =>
-            { 
-                await context.Response.WriteAsync(Configuration.GetSection("Message").Value); // Hello from Configuration 
-                // read child value 
-                await context.Response.WriteAsync(Configuration.GetSection("ConnectionStrings:SQLServerConnectionString").Value);// SQL Connection string sample
-                // read array
-                await context.Response.WriteAsync(Configuration.GetSection("Students:0:Name").Value); // Student A
-            });
-
+            app.UseStaticFiles();
+          
         }
     }
 }

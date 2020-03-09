@@ -1,0 +1,23 @@
+﻿@using DemoMVC.Models
+
+@{
+    var product = ViewData["Product"] as ProductModel;
+    Layout= null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Greeting"]</title>
+</head>
+<body>
+    <div><b>using view data</b></div>
+    <div>@product.Name</div>
+    <div><b>using view bag</b></div>
+    <div>@ViewBag.greeting</div>
+    <div>@ViewBag.product?.Name</div>
+
+</body>
+</html>

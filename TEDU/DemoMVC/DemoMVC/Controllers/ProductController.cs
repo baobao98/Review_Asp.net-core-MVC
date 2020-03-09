@@ -9,10 +9,18 @@ namespace DemoMVC.Controllers
 {
     public class ProductController : Controller
     {
+
+        public List<ProductModel> products = new List<ProductModel>() {
+            new ProductModel(){id=1,Name="Product 1",Available=true,Price=10000,PromotionPrice=90000},
+            new ProductModel(){id=1,Name="Product 2",Available=true,Price=70000,PromotionPrice=40000}
+        };
         public IActionResult Index()
         {
-            return View();
+            return View(products);
         }
+
+
+
         //Normal(map url with action): localhost:6000/product/edit
         //but we can rename to map by using ActionName or Route() ( 2 methods could use at the same time)
         [ActionName("modify")]

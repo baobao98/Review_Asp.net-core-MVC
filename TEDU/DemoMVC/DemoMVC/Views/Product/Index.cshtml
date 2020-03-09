@@ -1,0 +1,55 @@
+﻿@using DemoMVC.Models
+@model List<ProductModel>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Product List</title>
+</head>
+<body>
+      <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Available</th>
+                <th>Promotion Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.id</td>
+                        <td>@p.Name</td>
+                        <td>@p.Price</td>
+                        <td>
+                            @{
+                                if (p.Available == true)
+                                {
+                                    <strong>Available</strong>
+                                }
+                                else
+                                {
+                                    <strong>Out of stock</strong>
+                                }
+                            }
+                        </td>
+                        <td>@p.PromotionPrice</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div>Total of products: @Model.Count</div>
+
+  @section lib{
+        <script src="~/js/JavaScript.js"></script>
+    }
+
+</body>
+</html>
